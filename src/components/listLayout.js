@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
+import PostData from './postData';
+
 const PostList = styled.ul`
+    flex: 0 1 25%
     list-style-type: none;
     margin: 0;
     text-align: left;
-    max-width: 25%;
-    width: 100%;
 
     li {
         padding: 4px 0;
@@ -17,10 +18,8 @@ const PostList = styled.ul`
 `;
 
 const PostDetails = styled.div`
-    max-width: 75%;
+    flex: 1;
     margin: 0;
-    width: 100%;
-
 `;
 
 class ListLayout extends Component {
@@ -38,18 +37,34 @@ class ListLayout extends Component {
         })
     }
 
+    loadPost = post => {
+        this.setState({
+            showDetails: true,
+            postData: post
+        })
+    }
+
     render() {
         const { posts, showDetails, postData } = this.state
         return (
-            <PostDetails>
+            <>
                 <PostList>
                     {posts.map((post, index) => {
                         return (
-                            <li key={index}>{post.post_title}</li>
+                            <li key={index}>
+                                <a href="#" onClick={() => this.loadPost(post)}>{post.post_title}</a>
+                            </li>
                         )
                     })}
                 </PostList>
-            </PostDetails>
+                <PostDetails>
+                    {!!showDetails && !!postData ? (
+                        <PostData postData={postData} />
+                    ) : (
+                    <p>Please Select an entry</p>
+                    )}
+                </PostDetails>
+            </>
         )
     }
 }
