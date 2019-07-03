@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import * as Data from './data/data.json';
 
@@ -11,12 +10,11 @@ import Wrapper from './sharedComponents/wrapper';
 
 
 function App() {
-  console.log('data should be here', Data);
   return (
     <div className="App">
       <Header />
       <Wrapper>
-        <ListLayout />
+      <ListLayout posts={Data}/>
       </Wrapper>
       <Footer />
     </div>
