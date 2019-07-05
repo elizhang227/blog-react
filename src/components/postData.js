@@ -7,6 +7,7 @@ const PostData = props => {
         <>
             <h1>{postData.post_title}</h1>
             <p>{postData.post}</p>
+            <p>hi</p>
         </>
     )
 }
