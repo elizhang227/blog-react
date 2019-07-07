@@ -1,9 +1,17 @@
 import React from 'react';
+import styled from 'styled-components';
+
+const HeaderStyle = styled.h1`
+    display: flex;
+    justify-content: center;
+    color: blue;
+    background-color: orange;
+`;
 
 const Header = props => {
     return (
         <header>
-            My React Blog
+            <HeaderStyle>My React Blog</HeaderStyle>
         </header>
     )
 }
