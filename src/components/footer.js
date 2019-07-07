@@ -12,6 +12,7 @@ const Footer = props => {
     return (
         <footer>
             <FooterStyle>&copy; 2019 - Eli Zhang</FooterStyle>
+            <p>test</p>
         </footer>
     )
 }
